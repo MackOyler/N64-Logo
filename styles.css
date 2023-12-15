@@ -1,0 +1,79 @@
+body {
+    background-color: black; /* Background color for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.n64-logo {
+    position: relative;
+    width: 250px; /* Adjust as necessary */
+    height: 250px; /* Adjust as necessary */
+    transform-style: preserve-3d;
+    /* Add perspective for 3D effect */
+    perspective: 500px;
+}
+
+.parallelogram {
+    position: absolute;
+    width: 120px; /* Adjust as necessary */
+    height: 60px; /* Adjust as necessary */
+    /* The transform will be different for each parallelogram */
+}
+
+/* Define colors for each parallelogram side */
+.blue { background-color: #0051ba; } /* Use the exact color codes */
+.green { background-color: #00a651; }
+.yellow { background-color: #ffcb3e; }
+.red { background-color: #e7000a; }
+
+/* Styles for the blue front parallelograms */
+.front.upper {
+    transform: translateZ(60px);
+    /* Positioning and other transforms as necessary */
+}
+
+.front.lower {
+    transform: translateZ(60px) translateY(50px);
+    /* Positioning and other transforms as necessary */
+}
+
+/* Styles for the green side parallelograms */
+.side.upper {
+    transform: rotateY(90deg);
+    /* Positioning and other transforms as necessary */
+}
+
+.side.lower {
+    transform: rotateY(90deg) translateY(50px);
+    /* Positioning and other transforms as necessary */
+}
+
+/* Styles for the top yellow parallelograms */
+.top.upper {
+    transform: rotateX(90deg);
+    /* Positioning and other transforms as necessary */
+}
+
+.top.lower {
+    transform: rotateX(90deg) translateZ(50px);
+    /* Positioning and other transforms as necessary */
+}
+
+/* Style for the single red side parallelogram */
+.side.single {
+    transform: rotateY(90deg) translateX(120px) translateZ(60px);
+    /* Positioning and other transforms as necessary */
+}
+
+.n64-text {
+    color: #fff;
+    position: absolute;
+    top: 300px; /* Adjust as necessary */
+    font-size: 32px; /* Adjust as necessary */
+    letter-spacing: 0.05em; /* Adjust as necessary */
+    white-space: nowrap;
+}
