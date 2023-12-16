@@ -6,6 +6,7 @@ body {
     min-height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevents scrolling if the animation moves out of view */
 }
 
 .n64-logo {
@@ -14,17 +15,24 @@ body {
     height: 250px;
     transform-style: preserve-3d;
     perspective: 500px;
-    /* Adding a subtle animation */
     animation: rotateLogo 10s infinite linear;
+    cursor: pointer; /* Indicates the logo is interactive */
+    transform: rotateX(-30deg) rotateY(20deg); /* Initial rotation */
 }
 
 .parallelogram {
     position: absolute;
     width: 120px;
     height: 60px;
-    /* Adding a border and slight shadow for depth */
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease; /* Smoother transitions on hover */
+    transform-origin: bottom left;
+}
+
+/* Hover effect for interactivity */
+.n64-logo:hover .parallelogram {
+    transform: scale(1.1); /* Scales up the parallelogram slightly on hover */
 }
 
 /* Define colors for each parallelogram side */
@@ -34,36 +42,34 @@ body {
 .red { background-color: #e7000a; }
 
 /* Styles for the blue front parallelograms */
-.front.upper {
-    transform: translateZ(60px);
+.front.upper.blue { 
+    transform: translateZ(60px); 
 }
-
-.front.lower {
-    transform: translateZ(60px) translateY(50px);
+.front.lower.blue { 
+    transform: translateZ(60px) translateY(50px); 
 }
 
 /* Styles for the green side parallelograms */
-.side.upper {
-    transform: rotateY(90deg);
+.front.upper.green { 
+    transform: rotateY(90deg); 
 }
-
-.side.lower {
-    transform: rotateY(90deg) translateY(50px);
+.front.lower.green { 
+    transform: rotateY(90deg) translateY(50px); 
 }
 
 /* Styles for the top yellow parallelograms */
-.top.upper {
-    transform: rotateX(90deg);
+.top.upper.yellow { 
+    transform: rotateX(90deg); 
 }
-
-.top.lower {
-    transform: rotateX(90deg) translateZ(50px);
+.top.lower.yellow { 
+    transform: rotateX(90deg) translateZ(50px); 
 }
 
 /* Style for the single red side parallelogram */
-.side.single {
-    transform: rotateY(90deg) translateX(120px) translateZ(60px);
+.side.single.red { 
+    transform: rotateY(90deg) translateX(120px) translateZ(60px); 
 }
+
 
 .n64-text {
     color: #fff;
@@ -74,13 +80,20 @@ body {
     white-space: nowrap;
 }
 
-/* Animation for the logo */
 @keyframes rotateLogo {
-    from {
-        transform: rotateY(0deg);
-    }
-    to {
-        transform: rotateY(360deg);
-    }
+    from { transform: rotateY(20deg); }
+    to { transform: rotateY(380deg); }
 }
 
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    .n64-logo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .n64-text {
+        top: 200px;
+        font-size: 24px;
+    }
+}
