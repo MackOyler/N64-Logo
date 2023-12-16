@@ -41,7 +41,7 @@ body {
 .yellow { background-color: #ffcb3e; }
 .red { background-color: #e7000a; }
 
-/* Styles for the blue front parallelograms */
+/* Styles for the front blue parallelograms */
 .front.upper.blue { 
     transform: translateZ(60px); 
 }
@@ -49,12 +49,28 @@ body {
     transform: translateZ(60px) translateY(50px); 
 }
 
-/* Styles for the green side parallelograms */
-.front.upper.green { 
-    transform: rotateY(90deg); 
+/* Styles for the back blue parallelograms */
+.back.upper.blue {
+    transform: translateZ(-60px) rotateY(180deg);
 }
-.front.lower.green { 
+.back.lower.blue {
+    transform: translateZ(-60px) rotateY(180deg) translateY(50px);
+}
+
+/* Styles for the front green side parallelograms */
+.front.side.upper.green { 
+    transform: rotateY(90deg);
+}
+.front.side.lower.green { 
     transform: rotateY(90deg) translateY(50px); 
+}
+
+/* Styles for the back green side parallelograms */
+.back.side.upper.green {
+    transform: rotateY(-90deg) translateZ(-60px);
+}
+.back.side.lower.green {
+    transform: rotateY(-90deg) translateZ(-60px) translateY(50px);
 }
 
 /* Styles for the top yellow parallelograms */
@@ -65,11 +81,18 @@ body {
     transform: rotateX(90deg) translateZ(50px); 
 }
 
+/* Styles for the bottom yellow parallelograms */
+.bottom.upper.yellow {
+    transform: rotateX(-90deg) translateZ(-60px);
+}
+.bottom.lower.yellow {
+    transform: rotateX(-90deg) translateZ(-110px);
+}
+
 /* Style for the single red side parallelogram */
 .side.single.red { 
     transform: rotateY(90deg) translateX(120px) translateZ(60px); 
 }
-
 
 .n64-text {
     color: #fff;
